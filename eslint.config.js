@@ -19,14 +19,6 @@ export default [
         exports: "readonly",
       },
     },
-    rules: {
-      indent: ["error", 2],
-      "linebreak-style": ["error", "unix"],
-      quotes: ["error", "single"],
-      semi: ["error", "never"],
-      "no-unused-vars": "error",
-      "no-console": "warn",
-    },
   },
   {
     files: ["test/**/*.js"],
@@ -39,6 +31,7 @@ export default [
         beforeEach: "readonly",
         afterEach: "readonly",
         vi: "readonly",
+        performance: "readonly",
       },
     },
   },

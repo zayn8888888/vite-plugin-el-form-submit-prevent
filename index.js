@@ -32,15 +32,16 @@ export default function createAutoElFormPreventPlugin(options = {}) {
         const normalizedId = id.replace(/\\/g, "/");
 
         // 检查include模式
+        // 检查include模式
         const shouldInclude = include.some((pattern) => {
           const isMatch = picomatch(pattern);
-          return isMatch(normalizedId) || isMatch(id.split(/[\/\\]/).pop());
+          return isMatch(normalizedId) || isMatch(id.split(/[/\\]/).pop());
         });
 
         // 检查exclude模式
         const shouldExclude = exclude.some((pattern) => {
           const isMatch = picomatch(pattern);
-          return isMatch(normalizedId) || isMatch(id.split(/[\/\\]/).pop());
+          return isMatch(normalizedId) || isMatch(id.split(/[/\\]/).pop());
         });
 
         if (!shouldInclude || shouldExclude) {
@@ -60,7 +61,7 @@ export default function createAutoElFormPreventPlugin(options = {}) {
         if (newAttributes) {
           return `<el-form ${newAttributes} @submit.native.prevent>`;
         } else {
-          return `<el-form @submit.native.prevent>`;
+          return "<el-form @submit.native.prevent>";
         }
       });
 
